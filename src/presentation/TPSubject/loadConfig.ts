@@ -56,7 +56,7 @@ function getSolution(p: URLSearchParams) {
 
 async function loadSolution(cpwd: string) {
 
-    const file = `${location.origin}${location.pathname}/assets/answers.enc`;
+    const file = `${location.origin}${location.pathname}/@assets/answers.enc`;
     const encrypted = await (await fetch(file)).arrayBuffer();
     
     const decrypted = await decrypt(encrypted, cpwd);

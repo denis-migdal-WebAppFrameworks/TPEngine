@@ -1,6 +1,6 @@
-import { listen }      from "MWL@2026/exports/Reactive/Observable";
-import { resolve }     from "MWL@2026/exports/DOM";
-import { frameEffect } from "MWL@2026/exports/browser/scheduler";
+import { listen }      from "MWL@2026/@exports/Reactive/Observable";
+import { resolve }     from "MWL@2026/@exports/DOM";
+import { frameEffect } from "MWL@2026/@exports/browser/scheduler";
 
 import {StudentWork} from "TPEngine@2026/models/StudentWork";
 import { SessionCodec } from "TPEngine@2026/ports/codecs/Session";

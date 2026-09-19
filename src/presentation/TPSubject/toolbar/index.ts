@@ -1,4 +1,4 @@
-import { html, resolve } from "MWL@2026/exports/DOM";
+import { html, resolve } from "MWL@2026/@exports/DOM";
 
 export function createToolbar(
                                 isDS: boolean,

@@ -1,7 +1,7 @@
-import { baseStyle, initializeMetaRendering } from "../core/base";
-import { defineWidget, Coordinator, DeferredEffects, View } from "MWL@2026/exports/Widget";
+import { baseStyle, initializeMetaRendering } from "../@core/base";
+import { defineWidget, Coordinator, DeferredEffects, View } from "MWL@2026/@exports/Widget";
 import { QFileModel } from "TPEngine@2026/models/Questions";
-import { upload } from "TPEngine@2026/ports/stores/core/upload";
+import { upload } from "TPEngine@2026/ports/stores/@core/upload";
 
 const QFileWidget = defineWidget(
     "q-file",

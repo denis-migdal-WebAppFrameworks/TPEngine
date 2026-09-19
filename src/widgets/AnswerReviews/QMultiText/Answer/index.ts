@@ -1,7 +1,7 @@
 import { CodeEditor } from "MWL@2026/widgets/code/code-editor";
-import { defineWidget, Coordinator, View } from "MWL@2026/exports/Widget";
-import { WithProperties } from "MWL@2026/exports/Reactive/PropertySystem";
-import { Value } from "MWL@2026/exports/Reactive/PropertySystem/controllers";
+import { defineWidget, Coordinator, View } from "MWL@2026/@exports/Widget";
+import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
+import { Value } from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
 import { baseStyle } from "../../core/";
 import { updateGradeColor } from "TPEngine@2026/widgets/Questions/core/base";
 

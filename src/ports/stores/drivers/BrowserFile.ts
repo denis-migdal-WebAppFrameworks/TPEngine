@@ -1,7 +1,7 @@
 // BrowserFile
-import { Driver } from "../core";
-import { download } from "../core/download";
-import { upload } from "../core/upload";
+import { Driver } from "../@core";
+import { download } from "../@core/download";
+import { upload } from "../@core/upload";
 
 export class BrowserFileDriver implements Driver {
 

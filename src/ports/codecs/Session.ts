@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { Codec } from "./core";
 
-//TODO: use /exports/
+//TODO: use /@exports/
 import { StudentWorkCodec, StudentWorkData } from "./StudentWork";
 
 export type SessionData = {

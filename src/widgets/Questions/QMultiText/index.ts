@@ -1,8 +1,8 @@
-import { html } from "MWL@2026/exports/DOM/";
+import { html } from "MWL@2026/@exports/DOM/";
 import { CodeEditor } from "MWL@2026/widgets/code/code-editor";
 
-import { baseStyle, initializeMetaRendering, updateGradeColor } from "../core/base";
-import { Coordinator, DeferredEffects, defineWidget, View } from "MWL@2026/exports/Widget";
+import { baseStyle, initializeMetaRendering, updateGradeColor } from "../@core/base";
+import { Coordinator, DeferredEffects, defineWidget, View } from "MWL@2026/@exports/Widget";
 import { QMultiTextModel } from "TPEngine@2026/models/Questions";
 import { Property } from "MWL@2026/core/Reactive/PropertySystem/Property/Property";
 import { getProperty } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";

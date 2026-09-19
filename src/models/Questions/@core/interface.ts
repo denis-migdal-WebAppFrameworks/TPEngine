@@ -1,5 +1,5 @@
 import { WithPropertiesCstr } from "MWL@2026/core/Reactive/PropertySystem/Properties/WithProperties";
-import {Fixed, Value} from "MWL@2026/exports/Reactive/PropertySystem/controllers";
+import {Fixed, Value} from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
 
 export function QProperties<T>(initialAnswer: T) {
     return {

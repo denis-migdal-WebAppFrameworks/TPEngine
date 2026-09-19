@@ -2,7 +2,7 @@ import { QTextModel } from "./QText";
 import { QMultiTextModel } from "./QMultiText";
 import { QFileModel } from "./QFile";
 import { PropertiesShape } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";
-import { QuestionsRegistry } from "./core/interface";
+import { QuestionsRegistry } from "./@core/interface";
 
 export {QTextModel, QMultiTextModel, QFileModel};
 

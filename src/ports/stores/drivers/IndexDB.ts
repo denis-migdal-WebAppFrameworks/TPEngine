@@ -1,5 +1,5 @@
-import { str2buffer } from "../core/buffer";
-import { Driver } from "../core";
+import { str2buffer } from "../@core/buffer";
+import { Driver } from "../@core";
 
 // thanks ChatGPT...
 export class IndexDBDriver implements Driver {

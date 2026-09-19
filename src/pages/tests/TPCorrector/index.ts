@@ -45,7 +45,7 @@ function updateAnswersVisibility() {
     for(let i = 0; i < answerReviews.length; ++i)
         for(let j = 0; j < answerReviews[i].length; ++j) {
             const field = answerReviews[i][j];
-            field.classList.toggle("hidden", ! filter.value[getStudent(field)]);
+            field.hidden = ! filter.value[getStudent(field)];
         }
 }
 listen( filter, updateAnswersVisibility);

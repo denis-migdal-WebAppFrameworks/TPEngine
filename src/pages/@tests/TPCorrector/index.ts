@@ -1,4 +1,4 @@
-import { listen }      from "MWL@2026/@exports/Reactive/Observable";
+import { listen }      from "MWL@2026/@exports/Observable";
 import { resolve }     from "MWL@2026/@exports/DOM";
 import { frameEffect } from "MWL@2026/@exports/browser/scheduler";
 

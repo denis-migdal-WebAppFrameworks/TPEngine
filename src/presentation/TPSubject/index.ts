@@ -1,7 +1,7 @@
 import { StudentWork } from "TPEngine@2026/models/StudentWork";
 import { getQuestions, highlight, mapValues } from "./dom";
 import { getExternalStudentWorkStore, getLocalStudentWorkStore } from "./stores";
-import { listen } from "MWL@2026/@exports/Reactive/Observable";
+import { listen } from "MWL@2026/@exports/Observable";
 import { pauseReactions, resumeReactions } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
 import { setProperties } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";
 import { Widget } from "MWL@2026/@exports/Widget";

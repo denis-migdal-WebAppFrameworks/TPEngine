@@ -84,7 +84,7 @@ function initPagination(
     initHighlight(elems, session);
 
     listen(elems.pager, frameEffect(() => {
-        const fields = answerReviews[elems.pager.api.value];
+        const fields = answerReviews[elems.pager.subject.value];
         elems.answersArea.replaceChildren(...fields);
     }));
 }
@@ -99,7 +99,7 @@ function initHighlight(
 
     listen(elems.pager, frameEffect(() => {
 
-        const qid = Object.keys(session.solution.questions)[elems.pager.api.value];
+        const qid = Object.keys(session.solution.questions)[elems.pager.subject.value];
 
         elems.iframe.contentWindow?.postMessage({
                                                 type: "highlight",
@@ -224,7 +224,7 @@ function resetReviewSystem(elems: {pager : Pager}, session: Session) {
 
     resumeReactions(session);
 
-    elems.pager.api.reset(keys.length);
+    elems.pager.subject.reset(keys.length);
 }
 
 function loadStudentWorks(studentWorksData: Record<string, StudentWorkData>) {

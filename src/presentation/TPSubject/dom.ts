@@ -32,7 +32,7 @@ export function getQuestions(): Record<string, Widget<QuestionModel>> {
     const widgets: Record<string, Widget<QuestionModel>> = {};
 
     for(let i = 0; i < elements.length; ++i) {
-        const qid = elements[i].api.qid;
+        const qid = elements[i].subject.qid;
 
         __ASSERT__(qid !== null, `Question requires a qid, e.g. ${genQID()}!`);
         __ASSERT__(!(qid in widgets), `Duplicated qid ${qid} !`);

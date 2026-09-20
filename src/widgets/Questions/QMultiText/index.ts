@@ -1,5 +1,5 @@
 import { html } from "MWL@2026/@exports/DOM/";
-import { CodeEditor } from "MWL@2026/widgets/code/code-editor";
+import { CodeEditorWidget } from "MWL@2026/widgets/code/code-editor";
 
 import { baseStyle, initializeMetaRendering, updateGradeColor } from "../@core/base";
 import { Coordinator, DeferredEffects, defineWidget, View } from "MWL@2026/@exports/Widget";
@@ -27,18 +27,18 @@ const QMultiTextWidget = defineWidget(
 
             this.target.style.setProperty("--nbCols", `${nbCols}`);
 
-            const fields = new Array<CodeEditor>(nbFields);
+            const fields = new Array<CodeEditorWidget>(nbFields);
             const texts  = new Array<Property<string>>(nbFields);
 
             for(let i = 0; i < fields.length; ++i) {
                 //TODO: create/init function ?
                 const item = html`<div>(${i+1})</div>`;
 
-                const field = new CodeEditor();
+                const field = new CodeEditorWidget();
                 field.classList.add("graded", "compact");
 
                 fields [i] = field;
-                texts[i] = getProperty(field, "text");
+                texts[i] = getProperty(field.subject, "text");
 
                 this.elements.answersList.append( item, field );
             }

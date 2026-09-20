@@ -1,5 +1,5 @@
-import { Codec } from "../codecs/core";
-import { Driver, Store } from "./core";
+import { Codec } from "../codecs/@core";
+import { Driver, Store } from "./@core";
 import { BrowserFileDriver } from "./drivers/BrowserFile";
 import { IndexDBDriver } from "./drivers/IndexDB";
 

@@ -1,4 +1,4 @@
-import { CodeEditor } from "MWL@2026/widgets/code/code-editor";
+import { CodeEditorWidget } from "MWL@2026/widgets/code/code-editor";
 import {defineWidget, Coordinator, View, DeferredEffects} from "MWL@2026/@exports/Widget";
 import {bindProperties} from "MWL@2026/@exports/Reactive/PropertySystem";
 import { QTextModel } from "TPEngine@2026/models/Questions";
@@ -11,12 +11,12 @@ const QTextWidget = defineWidget("q-text",
         content: __LOAD_FILE__("./index.html"),
         style  : baseStyle,
         elements: {
-            editor: CodeEditor,
-            grade : HTMLElement,
+            editorWidget: CodeEditorWidget,
+            grade       : HTMLElement,
         },
         setup(ctrler) {
 
-            const editor = this.elements.editor;
+            const editor = this.elements.editorWidget.subject;
             bindProperties(ctrler, editor, map("lang", ["answer", "text"]));
 
             const effects = DeferredEffects(ctrler, this.renderer);

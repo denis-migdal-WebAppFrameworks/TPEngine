@@ -31,7 +31,7 @@ export async function initTPSubjectPage() {
 function createStudentWork(
                     questionWidgets: Record<string, Widget<QuestionModel>>
                 ) {
-    return new StudentWork(mapValues(questionWidgets, (w => w.api) ));
+    return new StudentWork(mapValues(questionWidgets, (w => w.subject) ));
 }
 
 function enableCorrectorFeatures(

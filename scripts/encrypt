@@ -23,7 +23,7 @@ try {
     
     const key = [...keyBytes].map(b => b.toString(16).padStart(2, "0")).join("");
 
-    await Deno.writeFile(keyFile, key);
+    await Deno.writeTextFile(keyFile, key);
 }
 
 const data = await Deno.readFile(inputFile);

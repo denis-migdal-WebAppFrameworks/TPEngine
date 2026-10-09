@@ -5,6 +5,10 @@
     }
 }
 
+:host(.ds) .answer:not(:hover, :focus) {
+    filter: blur(10px);
+}
+
 :host {
 
     --grade-color: transparent;

@@ -15,6 +15,7 @@ import { loadConfig } from "./loadConfig";
 export async function initTPSubjectPage() {
 
     const cfg              = loadConfig();
+
     const questionsWidgets = getQuestions();
     const work             = createStudentWork(questionsWidgets);
 
@@ -23,7 +24,11 @@ export async function initTPSubjectPage() {
     
     await initStudentWork(cfg, work);
 
-    if( cfg.isDS ) enableExternalAutoSave(work);
+    if( cfg.isDS ) {
+        for(const key in questionsWidgets)
+            questionsWidgets[key].classList.add("ds");
+        enableExternalAutoSave(work);
+    }
 
     initTransfertToolbar(cfg, work);
 }

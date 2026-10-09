@@ -1,5 +1,6 @@
 import { StudentWorkCodec } from "TPEngine@2026/ports/codecs/StudentWork";
 
+
 export function loadConfig() {
 
     const subjectID = location.pathname;

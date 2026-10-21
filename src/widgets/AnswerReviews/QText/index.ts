@@ -1,9 +1,9 @@
 import { updateProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
-import { AnswerReviewRegistry, baseStyle, initializeComment } from "../core/";
+import { AnswerReviewRegistry, baseStyle, initializeComment } from "../@core/";
 import { defineWidget, Coordinator, View } from "MWL@2026/@exports/Widget";
-import { updateGradeColor } from "TPEngine@2026/widgets/Questions/core/base";
+import { updateGradeColor } from "TPEngine@2026/widgets/Questions/@core/base";
 import { QTextModel } from "TPEngine@2026/models/Questions";
-import { CodeEditor } from "MWL@2026/widgets/code/code-editor";
+import { CodeEditorWidget } from "MWL@2026/widgets/code/code-editor";
 
 const ARTextWidget = defineWidget(
     "ar-text",
@@ -12,7 +12,7 @@ const ARTextWidget = defineWidget(
         content   : __LOAD_FILE__("./index.html"),
         style     : baseStyle,
         elements: {
-            editor : CodeEditor,
+            editor : CodeEditorWidget,
             comment: HTMLInputElement,
             score  : HTMLInputElement,
         },
@@ -33,7 +33,7 @@ const ARTextWidget = defineWidget(
                 updateGradeColor(this.target, score);
             });
 
-            updateProperties(this.elements.editor, {
+            updateProperties(this.elements.editor.subject, {
                 lang: ctrler.properties.lang,
                 text: ctrler.properties.answer
             });

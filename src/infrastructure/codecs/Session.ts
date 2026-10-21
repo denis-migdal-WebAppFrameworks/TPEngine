@@ -1,5 +1,5 @@
 import JSZip from "jszip";
-import { Codec } from "./core";
+import { Codec } from "./@core";
 
 //TODO: use /@exports/
 import { StudentWorkCodec, StudentWorkData } from "./StudentWork";

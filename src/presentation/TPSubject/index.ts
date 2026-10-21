@@ -8,7 +8,7 @@ import { Widget } from "MWL@2026/@exports/Widget";
 import { QuestionModel } from "TPEngine@2026/models/Questions";
 import { scrollTo } from "./dom";
 import { createToolbar } from "./toolbar";
-import { StudentWorkCodec, StudentWorkData } from "TPEngine@2026/ports/codecs/StudentWork";
+import { StudentWorkCodec, StudentWorkData } from "TPEngine@2026/infrastructure/codecs/StudentWork";
 import { loadConfig } from "./loadConfig";
 
 // orchestrator

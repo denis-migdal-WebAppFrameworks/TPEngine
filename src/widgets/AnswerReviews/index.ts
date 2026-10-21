@@ -1,9 +1,10 @@
 import { ARMultiTextWidget } from "./QMultiText";
 import { ARTextWidget } from "./QText";
-import { AnswerReviewRegistry } from "./core";
+import { ARFileWidget } from "./QFile";
+import { AnswerReviewRegistry } from "./@core";
 import { QuestionModel } from "TPEngine@2026/models/Questions";
 
-export { ARTextWidget, ARMultiTextWidget };
+export { ARTextWidget, ARMultiTextWidget, ARFileWidget };
 
 export type ARWidget = ARTextWidget|ARMultiTextWidget;
 

@@ -1,4 +1,4 @@
-import { baseStyle, initializeComment } from "../core/";
+import { baseStyle, initializeComment } from "../@core/";
 import { ARMultiTextAnswerWidget } from "./Answer";
 import { defineWidget, Coordinator, View } from "MWL@2026/@exports/Widget";
 import { QMultiTextModel } from "TPEngine@2026/models/Questions";

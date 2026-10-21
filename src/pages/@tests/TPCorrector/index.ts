@@ -3,16 +3,16 @@ import { resolve }     from "MWL@2026/@exports/DOM";
 import { frameEffect } from "MWL@2026/@exports/browser/scheduler";
 
 import {StudentWork} from "TPEngine@2026/models/StudentWork";
-import { SessionCodec } from "TPEngine@2026/ports/codecs/Session";
+import { SessionCodec } from "TPEngine@2026/infrastructure/codecs/Session";
 import { Session } from "TPEngine@2026/models/Session";
 import { createQuestionModel, QuestionModel } from "TPEngine@2026/models/Questions";
-import { StudentWorkData } from "TPEngine@2026/ports/codecs/StudentWork";
-import {SessionData} from "TPEngine@2026/ports/codecs/Session";
+import { StudentWorkData } from "TPEngine@2026/infrastructure/codecs/StudentWork";
+import {SessionData} from "TPEngine@2026/infrastructure/codecs/Session";
 
-import { createIndexDBStore, DataStore } from "TPEngine@2026/ports/stores/DataStore";
-import { BrowserFileDriver } from "TPEngine@2026/ports/stores/drivers/BrowserFile";
+import { createIndexDBStore, DataStore } from "TPEngine@2026/infrastructure/stores/DataStore";
+import { BrowserFileDriver } from "TPEngine@2026/infrastructure/stores/drivers/BrowserFile";
 import { throttle } from "TPEngine@2026/presentation/TPSubject";
-import { download } from "TPEngine@2026/ports/stores/core/download";
+import { download } from "TPEngine@2026/infrastructure/stores/@core/download";
 
 import {Pager} from "TPEngine@2026/widgets/Pager";
 import { createAnswerReviewWidget } from "TPEngine@2026/widgets/AnswerReviews";
@@ -83,8 +83,10 @@ function initPagination(
 
     initHighlight(elems, session);
 
-    listen(elems.pager, frameEffect(() => {
-        const fields = answerReviews[elems.pager.subject.value];
+    const pager = elems.pager.subject;
+
+    listen(pager, frameEffect(() => {
+        const fields = answerReviews[pager.value];
         elems.answersArea.replaceChildren(...fields);
     }));
 }
@@ -97,9 +99,11 @@ function initHighlight(
                         session: Session
                     ) {
 
-    listen(elems.pager, frameEffect(() => {
+    const pager = elems.pager.subject;
 
-        const qid = Object.keys(session.solution.questions)[elems.pager.subject.value];
+    listen(pager, frameEffect(() => {
+
+        const qid = Object.keys(session.solution.questions)[pager.value];
 
         elems.iframe.contentWindow?.postMessage({
                                                 type: "highlight",
@@ -216,8 +220,8 @@ function resetReviewSystem(elems: {pager : Pager}, session: Session) {
             const widget   = createAnswerReviewWidget(question);
             setStudent(widget, student);
 
-            // @ts-ignore
-            forwardProperties(widget, question);
+            // @ts-expect-error
+            forwardProperties(widget.subject, question);
             answerReviews[i][j] = widget;
         }
     }

@@ -1,7 +1,7 @@
-import { WidgetCstr } from "MWL@2026/@exports/Widget";
+import { Widget } from "MWL@2026/@exports/Widget";
 import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
 
-type ARWidgetCstr = WidgetCstr<{readonly type: string}>;
+type ARWidgetCstr = {new(opts?: Partial<{readonly type: string}>): Widget<{readonly type: string}>};
 
 export const AnswerReviewRegistry: Record<string, ARWidgetCstr> = {};
 

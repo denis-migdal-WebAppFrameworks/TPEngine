@@ -1,4 +1,4 @@
-import { StudentWorkCodec } from "TPEngine@2026/ports/codecs/StudentWork";
+import { StudentWorkCodec } from "TPEngine@2026/infrastructure/codecs/StudentWork";
 
 
 export function loadConfig() {

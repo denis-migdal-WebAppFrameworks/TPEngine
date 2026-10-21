@@ -1,5 +1,4 @@
 import { PropertiesEffects } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesEffects";
-import { isDS } from "TPEngine@2026/presentation/TPSubject";
 
 export const baseStyle = __LOAD_FILE__("./index.css");
 

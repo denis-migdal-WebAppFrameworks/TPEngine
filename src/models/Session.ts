@@ -2,7 +2,7 @@ import { ReactiveAggregator } from "MWL@2026/core/Reactive/PropertySystem/Collec
 import { ReactiveProxy } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveObject";
 import { pauseReactions, resumeReactions, triggerReactiveObject } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
 import { NO_VALUE } from "MWL@2026/core/types";
-import { StudentWorkData } from "TPEngine@2026/ports/codecs/StudentWork";
+import { StudentWorkData } from "TPEngine@2026/infrastructure/codecs/StudentWork";
 import { StudentWork } from "./StudentWork";
 
 type SessionState = {

@@ -1,4 +1,3 @@
-import { listen }      from "MWL@2026/@exports/Observable";
 import { resolve }     from "MWL@2026/@exports/DOM";
 import { frameEffect } from "MWL@2026/@exports/browser/scheduler";
 
@@ -19,6 +18,7 @@ import { createAnswerReviewWidget } from "TPEngine@2026/widgets/AnswerReviews";
 import { pauseReactions, resumeReactions } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
 import { forwardProperties } from "MWL@2026/core/Reactive/PropertySystem/Properties/sync";
 import { Filter } from "TPEngine@2026/presentation/TPCorrector";
+import { listen } from "MWL@2026/modules/Observable";
 
 const CUR_SUBJECT_LSNAME = "TPEngine.TPCorrector.cur";
 

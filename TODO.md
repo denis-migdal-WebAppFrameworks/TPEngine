@@ -3,7 +3,6 @@
 ======================
 
 - corrector
-    - ARFile
     - answers
         - sort
         - merge identical (?).

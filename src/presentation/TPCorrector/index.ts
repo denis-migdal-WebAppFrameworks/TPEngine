@@ -1,5 +1,5 @@
 import { html } from "MWL@2026/@exports/DOM";
-import { ObservableObject, trigger } from "MWL@2026/@exports/Observable";
+import { ObservableObject, trigger } from "MWL@2026/modules/Observable";
 
 // we could do a webcomp.
 export class Filter extends ObservableObject {

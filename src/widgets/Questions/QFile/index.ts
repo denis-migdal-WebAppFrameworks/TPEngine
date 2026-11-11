@@ -44,8 +44,8 @@ const QFileWidget = defineWidget(
                     }
                 });
 
-                effects.add("answer", () => {
-                    const answer = ctrler.properties.answer;
+                effects.addRule(["answer"], () => {
+                    const answer = ctrler.answer;
 
                     if( answer === null) {
                         // about:blank generate browser warnings.
@@ -63,11 +63,11 @@ const QFileWidget = defineWidget(
 
             this.elements.uploadBtn.addEventListener("click", async () => {
 
-                const file = await upload(ctrler.properties.accept);
+                const file = await upload(ctrler.accept);
 
                 if( file === null) return;
-                
-                ctrler.properties.answer = {
+
+                ctrler.answer = {
                     type   : file.type,
                     content: await file.arrayBuffer()
                 }

@@ -1,7 +1,7 @@
-import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
+import { Properties } from "MWL@2026/modules/Reactive/Collections/Properties";
 import { QProperties, QuestionsRegistry } from "./@core/interface";
 
-import {Constant, Fixed} from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
+import {Constant, Fixed} from "MWL@2026/modules/Reactive/Property";
 
 export type QFileAnswer = {
     type   : string,
@@ -9,7 +9,7 @@ export type QFileAnswer = {
 }
 
 // we assume empty string = null, avoid handling this special case.
-const QFileModel = WithProperties({
+const QFileModel = Properties({
     ...QProperties<QFileAnswer|null>(null),
     type  : Constant<string>("QFile"),
     accept: Fixed<string>(".*"),

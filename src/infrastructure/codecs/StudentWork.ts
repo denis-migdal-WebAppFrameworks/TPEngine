@@ -1,9 +1,7 @@
 import JSZip from "jszip";
 import { QuestionModel } from "TPEngine@2026/models/Questions";
 import { Codec } from "./@core";
-
-//TODO: use /@exports/
-import { PropertiesShape } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";
+import { PropertiesShape } from "MWL@2026/modules/Reactive/Property/@contract/@types/WithProperties";
 
 type QuestionData           = PropertiesShape<QuestionModel>;
 export type StudentWorkData = {readonly questions: Record<string, QuestionData>};

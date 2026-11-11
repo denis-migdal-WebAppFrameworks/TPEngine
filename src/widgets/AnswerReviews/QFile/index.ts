@@ -24,13 +24,13 @@ const ARFileWidget = defineWidget(
 
             const scoreInput = this.elements.score;
 
-            const score = ctrler.properties.score;
+            const score = ctrler.score;
             updateGradeColor(this.target, score);
             scoreInput.value = `${score}`;
 
             scoreInput.addEventListener("input", () => {
                 const score = +scoreInput.value;
-                ctrler.properties.score = score;
+                ctrler.score = score;
                 updateGradeColor(this.target, score);
             });
 
@@ -58,7 +58,7 @@ const ARFileWidget = defineWidget(
             });
 
             // RO
-            const answer = ctrler.properties.answer;
+            const answer = ctrler.answer;
 
             if( answer === null) {
                 // about:blank generate browser warnings.

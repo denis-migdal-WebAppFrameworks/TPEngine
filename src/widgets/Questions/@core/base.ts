@@ -1,4 +1,4 @@
-import { PropertiesEffects } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesEffects";
+import { DeferredEffects } from "MWL@2026/@exports/Widget";
 
 export const baseStyle = __LOAD_FILE__("./index.css");
 
@@ -9,24 +9,26 @@ export function initializeMetaRendering(
                                     readonly grade: HTMLElement
                                 }
                             },
-                            effects: PropertiesEffects<{
+                            effects: DeferredEffects<{
                                 comment: string,
                                 score  : null|number,
                                 coeff  : null|number,
                             }>,
                             color: boolean) {
 
-    effects.add("comment", () => {
+    const props = effects.target;
+
+    effects.addRule(["comment"], () => {
         ctx.target.style.setProperty(
                                         '--comment',
-                                        `"${effects.properties.comment}"`
+                                        `"${props.comment}"`
                                     );
     });
 
-    effects.add(["score", "coeff"], () => {
+    effects.addRule(["score", "coeff"], () => {
 
         const grade = ctx.elements.grade;
-        const coeff = effects.properties.coeff;
+        const coeff = props.coeff;
 
         if( coeff === null) { // not graded.
 
@@ -37,7 +39,7 @@ export function initializeMetaRendering(
             return;
         }
 
-        const score = effects.properties.score;
+        const score = props.score;
 
         if( color )
             updateGradeColor(ctx.target, score);

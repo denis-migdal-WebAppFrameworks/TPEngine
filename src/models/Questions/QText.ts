@@ -1,10 +1,10 @@
-import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
+import { Properties } from "MWL@2026/modules/Reactive/Collections/Properties";
+import {Constant, Value} from "MWL@2026/modules/Reactive/Property";
+
 import { QProperties, QuestionsRegistry } from "./@core/interface";
 
-import {Constant, Value} from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
-
 // we assume empty string = null, avoid handling this special case.
-const QTextModel = WithProperties({
+const QTextModel = Properties({
     ...QProperties<string>(""),
     type   : Constant<string>("QText"),
     lang   : Value<string|null>(null),

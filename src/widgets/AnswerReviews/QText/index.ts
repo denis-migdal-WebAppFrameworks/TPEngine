@@ -1,4 +1,4 @@
-import { updateProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
+import { updateProperties } from "MWL@2026/modules/Reactive/Property";
 import { AnswerReviewRegistry, baseStyle, initializeComment } from "../@core/";
 import { defineWidget, Coordinator, View } from "MWL@2026/@exports/Widget";
 import { updateGradeColor } from "TPEngine@2026/widgets/Questions/@core/base";
@@ -23,19 +23,19 @@ const ARTextWidget = defineWidget(
 
             const scoreInput = this.elements.score;
 
-            const score = ctrler.properties.score;
+            const score = ctrler.score;
             updateGradeColor(this.target, score);
             scoreInput.value = `${score}`;
 
             scoreInput.addEventListener("input", () => {
                 const score = +scoreInput.value;
-                ctrler.properties.score = score;
+                ctrler.score = score;
                 updateGradeColor(this.target, score);
             });
 
             updateProperties(this.elements.editor.subject, {
-                lang: ctrler.properties.lang,
-                text: ctrler.properties.answer
+                lang: ctrler.lang,
+                text: ctrler.answer
             });
         }
     }),

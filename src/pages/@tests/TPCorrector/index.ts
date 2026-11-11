@@ -15,10 +15,10 @@ import { download } from "TPEngine@2026/infrastructure/stores/@core/download";
 
 import {Pager} from "TPEngine@2026/widgets/Pager";
 import { createAnswerReviewWidget } from "TPEngine@2026/widgets/AnswerReviews";
-import { pauseReactions, resumeReactions } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
-import { forwardProperties } from "MWL@2026/core/Reactive/PropertySystem/Properties/sync";
+import { pauseReactions, resumeReactions } from "MWL@2026/modules/Reactive/Reaction";
 import { Filter } from "TPEngine@2026/presentation/TPCorrector";
 import { listen } from "MWL@2026/modules/Observable";
+import { forwardAllProperties } from "MWL@2026/modules/Reactive/Property";
 
 const CUR_SUBJECT_LSNAME = "TPEngine.TPCorrector.cur";
 
@@ -221,7 +221,7 @@ function resetReviewSystem(elems: {pager : Pager}, session: Session) {
             setStudent(widget, student);
 
             // @ts-expect-error
-            forwardProperties(widget.subject, question);
+            forwardAllProperties(widget.subject, question);
             answerReviews[i][j] = widget;
         }
     }

@@ -1,5 +1,5 @@
-import { WithPropertiesCstr } from "MWL@2026/core/Reactive/PropertySystem/Properties/WithProperties";
-import {Fixed, Value} from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
+import { PropertiesCstr } from "MWL@2026/modules/Reactive/Collections/Properties/@contract/@types/def";
+import {Fixed, Value} from "MWL@2026/modules/Reactive/Property";
 
 export function QProperties<T>(initialAnswer: T) {
     return {
@@ -12,4 +12,4 @@ export function QProperties<T>(initialAnswer: T) {
     }
 }
 
-export const QuestionsRegistry: Record<string, WithPropertiesCstr<{readonly type: string}>> = {};
+export const QuestionsRegistry: Record<string, PropertiesCstr<{readonly type: string}>> = {};

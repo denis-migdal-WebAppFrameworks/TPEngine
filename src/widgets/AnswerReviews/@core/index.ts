@@ -1,5 +1,5 @@
 import { Widget } from "MWL@2026/@exports/Widget";
-import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem";
+import { Properties } from "MWL@2026/modules/Reactive/Collections/Properties";
 
 type ARWidgetCstr = {new(opts?: Partial<{readonly type: string}>): Widget<{readonly type: string}>};
 
@@ -8,9 +8,9 @@ export const AnswerReviewRegistry: Record<string, ARWidgetCstr> = {};
 export const baseStyle = __LOAD_FILE__("./index.css");
 
 export function initializeComment(comment: HTMLInputElement,
-                                   ctrler: WithProperties<{comment: string}>) {
-    comment.value = ctrler.properties.comment;
+                                   ctrler: Properties<{comment: string}>) {
+    comment.value = ctrler.comment;
     comment.addEventListener("input", () => {
-        ctrler.properties.comment = comment.value;
+        ctrler.comment = comment.value;
     });
 }

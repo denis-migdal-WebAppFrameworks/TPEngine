@@ -1,8 +1,8 @@
 import { StudentWork } from "TPEngine@2026/models/StudentWork";
 import { getQuestions, highlight, mapValues } from "./dom";
 import { getExternalStudentWorkStore, getLocalStudentWorkStore } from "./stores";
-import { pauseReactions, resumeReactions } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
-import { setProperties } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";
+import { pauseReactions, resumeReactions } from "MWL@2026/modules/Reactive/Reaction";
+import { resetProperties } from "MWL@2026/modules/Reactive/Property";
 import { Widget } from "MWL@2026/@exports/Widget";
 import { QuestionModel } from "TPEngine@2026/models/Questions";
 import { scrollTo } from "./dom";
@@ -86,7 +86,8 @@ function loadData(data: StudentWorkData, work: StudentWork) {
 
         const qdata = data.questions[keys] ?? {};
 
-        setProperties(work.questions[keys], qdata);
+        // @ts-expect-error: the type=X|Y causes issues...
+        resetProperties(work.questions[keys], qdata);
     }
     
     resumeReactions(work);

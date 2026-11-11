@@ -1,10 +1,9 @@
-import { setProperties } from "MWL@2026/core/Reactive/PropertySystem/Properties/PropertiesProvider";
-import { pauseReactions, resumeReactions, triggerReactiveObject } from "MWL@2026/core/Reactive/PropertySystem/ReactiveObject/ReactiveScheduler";
+import { pauseReactions, resumeReactions, requestReaction } from "MWL@2026/modules/Reactive/Reaction";
 import { Coordinator, DeferredEffects, defineWidget, View } from "MWL@2026/@exports/Widget";
-import { WithProperties } from "MWL@2026/@exports/Reactive/PropertySystem/";
-import { Value } from "MWL@2026/@exports/Reactive/PropertySystem/controllers";
+import { Properties } from "MWL@2026/modules/Reactive/Collections/Properties";
+import { Value, resetProperties } from "MWL@2026/modules/Reactive/Property";
 
-class BoundedCounter extends WithProperties({
+class BoundedCounter extends Properties({
         value: Value(0),
         max  : Value(0) //TODO: Output(max).
     }) {
@@ -13,13 +12,13 @@ class BoundedCounter extends WithProperties({
 
         pauseReactions(this);
 
-        setProperties<BoundedCounter>(this, {
+        resetProperties(this, {
             value: 0,
             max,
         });
 
         // ensure trigger.
-        triggerReactiveObject(this);
+        requestReaction(this);
 
         resumeReactions(this);
     }
@@ -29,7 +28,7 @@ class BoundedCounter extends WithProperties({
         if( value === 0)
             return;
 
-        this.properties.value = --value;
+        this.value = --value;
     }
     incr() {
 
@@ -37,7 +36,7 @@ class BoundedCounter extends WithProperties({
         if( value >= this.max - 1)
             return;
 
-        this.properties.value = ++value;
+        this.value = ++value;
     }
 
 }
@@ -57,10 +56,10 @@ const Pager = defineWidget(
 
             const effects = DeferredEffects(ctrler, this.renderer);
 
-            effects.add("value", () => {
+            effects.addRule(["value"], () => {
                 this.elements.curText.textContent = `${ctrler.value+1}`;
             })
-            effects.add("max", () => {
+            effects.addRule(["max"], () => {
                 this.elements.maxText.textContent = `${ctrler.max}`;
             })
 

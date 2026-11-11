@@ -1,8 +1,8 @@
 import { html } from "MWL@2026/@exports/DOM";
-import { ObservableObject, trigger } from "MWL@2026/modules/Observable";
+import { Observable, trigger } from "MWL@2026/modules/Observable";
 
 // we could do a webcomp.
-export class Filter extends ObservableObject {
+export class Filter extends Observable {
 
     value: Record<string, boolean> = {};
 

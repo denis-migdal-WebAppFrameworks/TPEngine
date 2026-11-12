@@ -1,22 +1,22 @@
-import { resolve }     from "MWL@2026/@exports/DOM";
-import { frameEffect } from "MWL@2026/@exports/browser/scheduler";
+import { resolve }     from "MWL@2026/modules/@platform/DOM";
+import { frameEffect } from "MWL@2026/modules/@platform/Scheduler";
 
 import {StudentWork} from "TPEngine@2026/models/StudentWork";
-import { SessionCodec } from "TPEngine@2026/infrastructure/codecs/Session";
+import { SessionCodec } from "TPEngine@2026/models/Session/codec";
 import { Session } from "TPEngine@2026/models/Session";
 import { createQuestionModel, QuestionModel } from "TPEngine@2026/models/Questions";
-import { StudentWorkData } from "TPEngine@2026/infrastructure/codecs/StudentWork";
-import {SessionData} from "TPEngine@2026/infrastructure/codecs/Session";
+import { StudentWorkData } from "TPEngine@2026/models/StudentWork/codec";
+import {SessionData} from "TPEngine@2026/models/Session/codec";
 
-import { createIndexDBStore, DataStore } from "TPEngine@2026/infrastructure/stores/DataStore";
-import { BrowserFileDriver } from "TPEngine@2026/infrastructure/stores/drivers/BrowserFile";
-import { throttle } from "TPEngine@2026/presentation/TPSubject";
-import { download } from "TPEngine@2026/infrastructure/stores/@core/download";
+import { createIndexDBStore, DataStore } from "TPEngine@2026/modules/@platform/dataIO/stores";
+import { BrowserFileDriver } from "TPEngine@2026/modules/@platform/dataIO/stores/drivers/BrowserFile";
+import { throttle } from "TPEngine@2026/webui/orchestrators/TPSubject";
+import { download } from "TPEngine@2026/modules/@platform/dataIO/userFiles";
 
-import {Pager} from "TPEngine@2026/widgets/Pager";
-import { createAnswerReviewWidget } from "TPEngine@2026/widgets/AnswerReviews";
+import {Pager} from "TPEngine@2026/webui/widgets/Pager";
+import { createAnswerReviewWidget } from "TPEngine@2026/webui/widgets/AnswerReviews";
 import { pauseReactions, resumeReactions } from "MWL@2026/modules/Reactive/Reaction";
-import { Filter } from "TPEngine@2026/presentation/TPCorrector";
+import { Filter } from "TPEngine@2026/webui/orchestrators/TPCorrector";
 import { listen } from "MWL@2026/modules/Observable";
 import { forwardAllProperties } from "MWL@2026/modules/Reactive/Property";
 

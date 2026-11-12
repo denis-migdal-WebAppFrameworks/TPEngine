@@ -1,7 +1,3 @@
-- bindProperties : ensure keys type (hard).
-
-======================
-
 - corrector
     - answers
         - sort
